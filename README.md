@@ -9,6 +9,8 @@ given at CamundaCon LIVE 2020.
 
 ## Demo
 
+[__:arrow_right: Try it out__](https://cdn.statically.io/gh/nikku/roll-your-own-bpmn-editor/v0.0.1/public/index.html).
+
 Checkout [`./public`](./public) for the final result.
 
 
