@@ -22,8 +22,8 @@ Checkout [`./public`](./public) for the final result.
 * Introduce services aka modeler.get(‘canvas’).zoom(‘fit-viewport’)
 * Introduce extension mechanism aka additionalModules
 * Disable rendering (override bpmnRenderer)
-* Add minimap => https://github.com/bpmn-io/diagram-js-minimap
-* Add linting => https://github.com/bpmn-io/bpmn-js-bpmnlint
+* Add [minimap](https://github.com/bpmn-io/diagram-js-minimap) 
+* Add [linting](https://github.com/bpmn-io/bpmn-js-bpmnlint) + lint rules
 * Remove service task, replace with RPA robot task
 
 
