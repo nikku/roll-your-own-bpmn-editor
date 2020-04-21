@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>bpmn-js roll your own editor demo</title>
+
+    <!-- required modeler styles -->
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@6.4.2/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@6.4.2/dist/assets/bpmn-font/css/bpmn.css">
+
+    <!-- minimap styles -->
+    <link rel="stylesheet" href="https://unpkg.com/diagram-js-minimap@2.0.3/assets/diagram-js-minimap.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js-bpmnlint@0.15.0/dist/assets/css/bpmn-js-bpmnlint.css">
+
+    <!-- example styles -->
+    <style>
+      html, body, #canvas {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .buttons {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+      }
+
+      .notification {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        font: .9em sans-serif;
+        background: #BBDEFB;
+        border: solid 1px #64B5F6;
+        border-radius: 3px;
+        padding: 10px 13px;
+      }
+
+      button {
+        background: #FAFAFA;
+        border: solid 1px #CCC;
+        border-radius: 3px;
+        padding: 7px 10px;
+      }
+
+      button:hover {
+        border-color: #AAA;
+        background:  #E9E9E9;
+      }
+
+      button + button {
+        margin-left: 10px;
+      }
+
+      .drop-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 20px;
+        background: rgba(0,0,0, .3);
+        z-index: 500;
+        text-align: left;
+      }
+
+      .drop-overlay .label {
+        color: #ededed;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font: bold 2em sans-serif ;
+      }
+
+      .drop-overlay .box {
+        border: dashed 5px #ededed;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 90%;
+        height: 90%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+
+    <div class="buttons">
+      <button id="download-bpmn">Save BPMN</button>
+      <button id="download-svg">Save as SVG</button>
+    </div>
+
+    <div class="notification">
+      <strong>Hint: </strong> Drop your own diagram to open it!
+    </div>
+
+    <!-- modeler distro -->
+    <script src="https://unpkg.com/bpmn-js@6.4.2/dist/bpmn-modeler.production.min.js"></script>
+
+    <!-- minimap module distro -->
+    <script src="https://unpkg.com/diagram-js-minimap@2.0.3/dist/diagram-minimap.umd.prod.js"></script>
+
+    <!-- linting distro -->
+    <script src="https://unpkg.com/bpmn-js-bpmnlint@0.15.0/dist/bpmn-js-bpmnlint.umd.js"></script>
+    <script src="../dist/bpmnlint-rules.umd.js"></script>
+
+    <!-- app misc -->
+    <script src="https://unpkg.com/downloadjs@1.4.7/download.js"></script>
+    <script src="https://unpkg.com/file-drops@0.4.0/dist/file-drops.umd.js"></script>
+
+    <!-- demo script -->
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "bpmn-js-roll-your-editor",
+  "version": "0.0.0",
+  "description": "Roll your own BPMN editor",
+  "dependencies": {},
+  "scripts": {
+    "all": "npm run pack-lint-rules",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "pack-lint-rules": "bpmnlint-pack-config -o dist/bpmnlint-rules.umd.js -t umd --target-name BpmnlintRules",
+    "start": "sirv --dev"
+  },
+  "author": "Nico Rehwaldt",
+  "license": "MIT",
+  "devDependencies": {
+    "bpmnlint": "^6.4.0",
+    "bpmnlint-pack-config": "^0.6.1",
+    "sirv-cli": "^0.4.5"
+  }
+}
