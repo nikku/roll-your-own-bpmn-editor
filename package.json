@@ -1,6 +1,6 @@
 {
   "name": "bpmn-js-roll-your-editor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Roll your own BPMN editor",
   "dependencies": {},
   "scripts": {
