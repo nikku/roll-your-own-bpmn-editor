@@ -4,16 +4,22 @@
   "description": "Roll your own BPMN editor",
   "dependencies": {},
   "scripts": {
-    "all": "npm run pack-lint-rules",
+    "all": "run-s pack-lint-rules bundle-service-task-only",
     "test": "echo \"Error: no test specified\" && exit 0",
     "pack-lint-rules": "bpmnlint-pack-config -o dist/bpmnlint-rules.umd.js -t umd --target-name BpmnlintRules",
+    "bundle-service-task-only": "rollup -c service-task-only/rollup.config.js",
     "start": "sirv --dev"
   },
-  "author": "Nico Rehwaldt",
+  "author": "Nico Rehwaldt <https://github.com/nikku>",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
     "bpmnlint": "^6.4.0",
     "bpmnlint-pack-config": "^0.6.1",
+    "min-dash": "^3.5.2",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.7.1",
     "sirv-cli": "^0.4.5"
   }
 }

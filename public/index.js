@@ -10,7 +10,8 @@ var bpmnEditor = new BpmnJS({
   },
   additionalModules: [
     DiagramJSMinimap,
-    BpmnJSBpmnlint
+    BpmnJSBpmnlint,
+    BpmnJSServiceTaskOnly
   ]
 });
 
