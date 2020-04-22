@@ -1,7 +1,6 @@
 # bpmn-js: Roll your own BPMN editor
 
-Material for my talk "How to (not) roll your own BPMN editor",
-given at CamundaCon LIVE 2020.
+Material for my talk "How to (not) roll your own BPMN editor" I gave at CamundaCon LIVE 2020.
 
 
 ## Slides
