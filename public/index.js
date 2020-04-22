@@ -1,8 +1,8 @@
-/* global BpmnJS, download, DiagramJSMinimap, BpmnJSBpmnlint, FileDrops */
+/* global BpmnJS, download, DiagramJSMinimap, BpmnJSBpmnlint, BpmnlintRules, BpmnJSServiceTaskOnly, FileDrops */
 
-var file = { name: 'diagram.bpmn' };
 
-// modeler instance
+// bootstrap BPMN modeler ////////////
+
 var bpmnEditor = new BpmnJS({
   container: '#canvas',
   linting: {
@@ -15,30 +15,8 @@ var bpmnEditor = new BpmnJS({
   ]
 });
 
-/**
- * Save diagram contents and print them to the console.
- */
-function downloadSVG() {
-  bpmnEditor.saveSVG((err, svg) => {
 
-    if (err) {
-      return console.error('Failed to save SVG', err);
-    }
-
-    return download(svg, file.name + '.svg', 'application/xml');
-  });
-}
-
-function downloadBPMN() {
-  bpmnEditor.saveXML({ format: true }, (err, xml) => {
-
-    if (err) {
-      return console.error('Failed to save XML', err);
-    }
-
-    return download(xml, file.name, 'application/xml');
-  });
-}
+// helpers //////////////////////////
 
 /**
  * Open diagram in our modeler instance.
@@ -54,16 +32,56 @@ function openDiagram(bpmnXML) {
       return console.error('could not import BPMN 2.0 diagram', err);
     }
 
-    // access modeler components
+    // get hold on canvas
     var canvas = bpmnEditor.get('canvas');
 
     // zoom to fit full viewport
     canvas.zoom('fit-viewport');
+
+    // get hold on overlays service
+    var overlays = bpmnEditor.get('overlays');
+
+    // attach an overlay to a diagram element
+    overlays.add('ChooseReciepe', 'note', {
+      position: {
+        bottom: 10,
+        right: 40
+      },
+      html: '<div class="diagram-note">Why not do fast food instead?</div>'
+    });
+  });
+}
+
+
+var file = { name: 'diagram.bpmn' };
+
+/**
+ * Save diagram contents and print them to the console.
+ */
+function downloadSVG() {
+  bpmnEditor.saveSVG((err, svg) => {
+
+    if (err) {
+      return console.error('Failed to save SVG', err);
+    }
+
+    return download(svg, file.name + '.svg', 'application/xml');
   });
 }
 
 // wire save button
 document.querySelector('#download-svg').addEventListener('click', downloadSVG);
+
+function downloadBPMN() {
+  bpmnEditor.saveXML({ format: true }, (err, xml) => {
+
+    if (err) {
+      return console.error('Failed to save XML', err);
+    }
+
+    return download(xml, file.name, 'application/xml');
+  });
+}
 
 // wire save button
 document.querySelector('#download-bpmn').addEventListener('click', downloadBPMN);
@@ -81,9 +99,6 @@ document.querySelector('body').addEventListener('dragover', dropHandler);
 
 window.addEventListener('load', function() {
 
-  var defaultDiagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-sketchy/a891af1fb3c2e6f6b7a85e5e1c562f941b9db24f/test/pizza-collaboration.bpmn';
-
-  // load external diagram file via AJAX and open it
-  fetch(defaultDiagramUrl).then(r => r.text()).then(openDiagram);
-
+  // fetch default diagram via AJAX and open it
+  fetch('./diagram.bpmn').then(r => r.text()).then(openDiagram);
 });
