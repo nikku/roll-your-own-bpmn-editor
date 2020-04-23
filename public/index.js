@@ -89,7 +89,7 @@ function downloadBPMN() {
 // wire save button
 document.querySelector('#download-bpmn').addEventListener('click', downloadBPMN);
 
-const dropHandler = FileDrops('Drop a BPMN diagram', function(files) {
+var dropHandler = FileDrops('Drop a BPMN diagram', function(files) {
 
   if (files.length) {
     file = files[0];
