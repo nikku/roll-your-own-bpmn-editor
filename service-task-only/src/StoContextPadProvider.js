@@ -66,8 +66,12 @@ export default function StoContextPadProvider(
 
   this.getContextPadEntries = function(element) {
 
-
     return function(entries) {
+
+      // replace the task contextPad entry with a service task one
+      if (!('append.append-task' in entries)) {
+        return entries;
+      }
 
       var filteredEntries = Object.keys(entries).reduce(function(newEntries, key) {
 
