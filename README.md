@@ -5,6 +5,8 @@ Material for my talk "How to (not) roll your own BPMN editor" I gave at CamundaC
 
 ## Slides
 
+_To be published._
+
 
 ## Demo
 
