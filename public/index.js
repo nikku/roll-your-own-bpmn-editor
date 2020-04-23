@@ -4,18 +4,7 @@
 // bootstrap BPMN modeler ////////////
 
 var bpmnEditor = new BpmnJS({
-  container: '#canvas',
-  keyboard: {
-    bindTo: document.body
-  },
-  linting: {
-    bpmnlint: BpmnlintRules
-  },
-  additionalModules: [
-    DiagramJSMinimap,
-    BpmnJSBpmnlint,
-    BpmnJSServiceTaskOnly
-  ]
+  container: '#canvas'
 });
 
 
@@ -35,23 +24,6 @@ function openDiagram(bpmnXML) {
       return console.error('could not import BPMN 2.0 diagram', err);
     }
 
-    // get hold on canvas
-    var canvas = bpmnEditor.get('canvas');
-
-    // zoom to fit full viewport
-    canvas.zoom('fit-viewport');
-
-    // get hold on overlays service
-    var overlays = bpmnEditor.get('overlays');
-
-    // attach an overlay to a diagram element
-    overlays.add('ChooseReciepe', 'note', {
-      position: {
-        bottom: 10,
-        right: 40
-      },
-      html: '<div class="diagram-note">Why not do fast food instead?</div>'
-    });
   });
 }
 
