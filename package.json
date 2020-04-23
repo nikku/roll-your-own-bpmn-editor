@@ -2,7 +2,6 @@
   "name": "bpmn-js-roll-your-editor",
   "version": "0.0.3",
   "description": "Roll your own BPMN editor",
-  "dependencies": {},
   "scripts": {
     "all": "run-s pack-lint-rules bundle-service-task-only",
     "test": "echo \"Error: no test specified\" && exit 0",
