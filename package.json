@@ -1,6 +1,6 @@
 {
   "name": "bpmn-js-roll-your-editor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Roll your own BPMN editor",
   "scripts": {
     "all": "run-s pack-lint-rules bundle-service-task-only",
