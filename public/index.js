@@ -5,6 +5,9 @@
 
 var bpmnEditor = new BpmnJS({
   container: '#canvas',
+  keyboard: {
+    bindTo: document.body
+  },
   linting: {
     bpmnlint: BpmnlintRules
   },
