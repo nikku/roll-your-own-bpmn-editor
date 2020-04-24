@@ -5,7 +5,7 @@ Material for my talk "How to (not) roll your own BPMN editor" I gave at CamundaC
 
 ## Slides
 
-_To be published._
+[![Slide deck first slide](./resources/slide.png)](https://speakerdeck.com/nikku/how-to-not-roll-your-own-bpmn-diagram-editor-an-introduction-to-bpmn-js-and-its-friends)
 
 
 ## Demo
